@@ -7,6 +7,7 @@ SERV_PORT = 50000
 publish_list = {}
 subsribe_list = {}
 
+
 def handle_client(s):
   while True:
      txtin = s.recv(1024)
@@ -34,14 +35,16 @@ def handle_client(s):
             s.send(("error invalided").encode('utf-8')) 
     
      elif cmd == 'publish':
+         check = 0
          if s in publish_list:
              current_topic = publish_list[s]
              for x,y in subsribe_list.items():
                  if y == current_topic:
+                     check = check + 1
                      x.send((arg).encode('utf-8'))
                      s.send(("success Published successful").encode('utf-8'))
-                 else:
-                     s.send(("success Published successful").encode('utf-8'))
+             if check == 0:   
+                 s.send(("success Published successful").encode('utf-8'))
          else:
              s.send(("error Topic unset").encode('utf-8'))
            

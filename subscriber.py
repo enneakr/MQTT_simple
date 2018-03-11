@@ -19,8 +19,7 @@ while True:
         if txtout == 'quit':
             s.send(txtout.encode('utf-8'))
             break
-        cmd,arg = txtout.split(None,1)
-        
+        cmd,arg = txtout.split(None,1)       
     except:
         print ('Input must be completed with cmd and value')
         continue 
