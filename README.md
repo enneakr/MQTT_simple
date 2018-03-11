@@ -20,7 +20,7 @@ Implementing MQTT protocal with TCP based
   Send a new message to broker in order to broadcast to subscribers 
   eg. publish bnk48 is currenly on tour.
   
-  **cancel "topic name**
+  **cancel "topic name"**
   Cancel the current topic your publisher is on eg. cancel mqttTest1
   
   **quit**
