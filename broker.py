@@ -17,17 +17,17 @@ def handle_client(s):
         if s not in publish_list:
             publish_list[s] = arg
             print(str(publish_list))
-            s.send(("checked").encode('utf-8'))
+            s.send(("success New topic").encode('utf-8'))
         else:
-            s.send(("Must cancel current topic").encode('utf-8'))
+            s.send(("error Must cancel current topic").encode('utf-8'))
 
      elif cmd == 'cancel':
         if publish_list[s] == arg:
             del publish_list[s]   
             # print(str(publish_list))
-            s.send(("canceled").encode('utf-8'))
+            s.send(("success Canceled topic").encode('utf-8'))
         else:
-            s.send(("invalided").encode('utf-8')) 
+            s.send(("error invalided").encode('utf-8')) 
     
      elif cmd == 'publish':
          if s in publish_list:
@@ -35,9 +35,9 @@ def handle_client(s):
              for x,y in subsribe_list.items():
                  if y == current_topic:
                      x.send((arg).encode('utf-8'))
-                     s.send(("published successful").encode('utf-8'))
+                     s.send(("success Published successful").encode('utf-8'))
          else:
-             s.send(("Topic must be set fisrt!").encode('utf-8'))
+             s.send(("error Topic unset").encode('utf-8'))
            
      elif cmd == 'sub':
          subsribe_list[s] = arg
