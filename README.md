@@ -13,14 +13,14 @@ Implementing MQTT protocal with TCP based
 ### Command:
 
  #### Publisher
-  **topic "topic name"**
+  **topic _topic_name_**
   Set a new topic for that publisher eg. topic mqttTest1
   
-  **publish "message"**
+  **publish _message_**
   Send a new message to broker in order to broadcast to subscribers 
   eg. publish bnk48 is currenly on tour.
   
-  **cancel "topic name"**
+  **cancel _topic_name_**
   Cancel the current topic your publisher is on eg. cancel mqttTest1
   
   **quit**
@@ -29,7 +29,7 @@ Implementing MQTT protocal with TCP based
   _Note: to set a new topic, your current topic must be canceled and to publish to broker ,your current topic must be set_
   
  #### Subscriber
-  **sub "topic name**
+  **sub _topic_name_**
   Set topic,you would like to subscribe  eg. sub mqttTest1
   
   _Note: Currrent version can still subscribe only one topic_
