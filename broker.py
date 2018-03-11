@@ -36,6 +36,8 @@ def handle_client(s):
                  if y == current_topic:
                      x.send((arg).encode('utf-8'))
                      s.send(("published successful").encode('utf-8'))
+         else:
+             s.send(("Topic must be set fisrt!").encode('utf-8'))
            
      elif cmd == 'sub':
          subsribe_list[s] = arg
@@ -52,7 +54,7 @@ def main():
   addr = ('127.0.0.1', SERV_PORT)
   s = socket(AF_INET, SOCK_STREAM)
   s.bind(addr)
-  s.listen(5)
+  s.listen(2)
   print ('TCP threaded server started ...')
 
   while True:

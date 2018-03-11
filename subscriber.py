@@ -12,10 +12,14 @@ s.connect(addr)
 current_topic = ''
 #message = input('Client >: ')
 while True:
-    print ('Subscriber:> ', end='') 
-    sys.stdout.flush()
-    txtout = sys.stdin.readline().strip()
-    cmd,arg = txtout.split(None,1)
+    try:
+        print ('Subscriber:> ', end='') 
+        sys.stdout.flush()
+        txtout = sys.stdin.readline().strip()
+        cmd,arg = txtout.split(None,1)
+    except:
+        print ('Input must be completed with cmd and value')
+        continue 
     if cmd in command:
         s.send(txtout.encode('utf-8'))
         if txtout == 'quit':
