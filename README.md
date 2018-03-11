@@ -25,9 +25,11 @@ Implementing MQTT protocal with TCP based
   
   **quit**
   Quit the client - there are no arguement following quit command. eg. quit
+  
   _Note: to set a new topic, your current topic must be canceled and to publish to broker ,your current topic must be set_
   
  #### Subscriber
   **sub "topic name**
   Set topic,you would like to subscribe  eg. sub mqttTest1
+  
   _Note: Currrent version can still subscribe only one topic_
