@@ -1,2 +1,24 @@
 # MQTT_simple
-implement MQTT protocal with TCP based
+Implementing MQTT protocal with TCP based
+
+Requirement:
+  - Any OS with Python 3++
+  - Any Shell might be worked
+ 
+Setup Guildline:
+  - setup Broker first,call your shell and run python broker.py
+  - if you would like to setup Publisher go with python client.py on another shell
+  - if you would like to setup Subscriber go with python subscriber.py on another shell
+
+Command code: CMD ARGUEMENT
+ On Publisher
+  - topic "topic name"
+  Set a new topic for that publisher eg. topic mqttTest1
+  - publish "message"
+  Send a new message to broker in order to broadcast to subscribers eg. publish bnk48 is currenly on tour.
+  - cancel "topic name"
+  Cancel the current topic your publisher is on eg. cancel mqttTest1
+  - quit 
+  Quit the 
+  Note: to set a new topic, your current topic must be canceled and to publish to broker ,your current topic must be set
+
