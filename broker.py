@@ -11,7 +11,11 @@ def handle_client(s):
   while True:
      txtin = s.recv(1024)
      print ('Client> %s' %(txtin).decode('utf-8'))
-     cmd,arg = txtin.decode('utf-8').split(None,1)
+     if txtin == b'quit':
+        print('Client disconnected ...')
+        break
+     else:
+        cmd,arg = txtin.decode('utf-8').split(None,1)
 
      if cmd == 'topic':
         if s not in publish_list:
@@ -43,10 +47,6 @@ def handle_client(s):
          subsribe_list[s] = arg
          print(str(subsribe_list))
 
-     elif txtin == b'quit':
-        print('Client disconnected ...')
-        break
-    
   s.close()
   return
 
@@ -54,7 +54,7 @@ def main():
   addr = ('127.0.0.1', SERV_PORT)
   s = socket(AF_INET, SOCK_STREAM)
   s.bind(addr)
-  s.listen(2)
+  s.listen(5)
   print ('TCP threaded server started ...')
 
   while True:

@@ -16,14 +16,15 @@ while True:
         print ('Client:> ', end='') 
         sys.stdout.flush()
         txtout = sys.stdin.readline().strip()
+        if txtout == 'quit':
+            s.send(txtout.encode('utf-8'))
+            break
         cmd,arg = txtout.split(None,1)
     except:
         print ('Input must be completed with cmd and value')
         continue 
     if cmd in command:
         s.send(txtout.encode('utf-8'))
-        if txtout == 'quit':
-            break
         modifiedMsg = s.recv(2048)
         print (modifiedMsg.decode('utf-8'))
 
