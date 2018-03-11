@@ -40,6 +40,8 @@ def handle_client(s):
                  if y == current_topic:
                      x.send((arg).encode('utf-8'))
                      s.send(("success Published successful").encode('utf-8'))
+                 else:
+                     s.send(("success Published successful").encode('utf-8'))
          else:
              s.send(("error Topic unset").encode('utf-8'))
            
